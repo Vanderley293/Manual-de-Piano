@@ -1,14 +1,21 @@
-const CACHE_NAME = 'teoria-musical-v1';
 const ASSETS_TO_CACHE = [
-  './index.html',
-  './style.css',
-  './js/app.js',
-  './manifest.json',
-  // Chapters (Pre-caching core chapters)
-  './chapters/01_intro.html',
-  './chapters/04_scales.html',
-  './chapters/07_functions.html',
-  './chapters/08_technique.html'
+  'index.html',
+  'style.css',
+  'js/app.js',
+  'manifest.json',
+  'assets/icon.png',
+  // Chapters
+  'chapters/00_mechanics.html',
+  'chapters/01_intro.html',
+  'chapters/02_piano.html',
+  'chapters/03_notation.html',
+  'chapters/04_scales.html',
+  'chapters/04_intervals.html',
+  'chapters/05_harmony.html', 
+  'chapters/05_scales.html',
+  'chapters/06_harmony.html',
+  'chapters/07_functions.html',
+  'chapters/08_technique.html'
 ];
 
 // Install Event: Cache core assets
