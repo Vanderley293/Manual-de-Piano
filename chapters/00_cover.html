@@ -1,0 +1,183 @@
+<!-- CAPA GERAL: Manual Mestre -->
+<section class="slide-section text-center relative overflow-hidden" data-chapter="Capítulo 0" data-title="Capa Principal">
+    
+    <!-- === FLOATING 3D PIANO & NOTES BACKGROUND === -->
+    <div id="piano-bg-container" class="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+        <style>
+            /* 3D Container Settings */
+            #piano-bg-container {
+                perspective: 1200px;
+                transform-style: preserve-3d;
+            }
+
+            /* Animation Keyframes with 3D Depth */
+            @keyframes floatRandom1 { 
+                0%,100%{transform:translate3d(0,0,0) rotateX(0deg) rotateY(0deg)} 
+                33%{transform:translate3d(25px,-35px,60px) rotateX(12deg) rotateY(-10deg)} 
+                66%{transform:translate3d(-20px,25px,-40px) rotateX(-10deg) rotateY(15deg)} 
+            }
+            @keyframes floatRandom2 { 
+                0%,100%{transform:translate3d(0,0,0) rotateX(0deg) rotateY(0deg)} 
+                25%{transform:translate3d(-30px,20px,50px) rotateX(-15deg) rotateY(12deg)} 
+                75%{transform:translate3d(35px,-15px,-30px) rotateX(10deg) rotateY(-18deg)} 
+            }
+            @keyframes floatRandom3 { 
+                0%,100%{transform:translate3d(0,0,0) rotateX(0deg) rotateY(0deg)} 
+                50%{transform:translate3d(20px,30px,80px) rotateX(18deg) rotateY(25deg)} 
+            }
+            @keyframes floatRandom4 { 
+                0%,100%{transform:translate3d(0,0,0) rotateX(0deg) rotateY(0deg)} 
+                40%{transform:translate3d(-25px,-25px,-50px) rotateX(-12deg) rotateY(-20deg)} 
+                80%{transform:translate3d(30px,15px,40px) rotateX(15deg) rotateY(10deg)} 
+            }
+            
+            .float-element {
+                position: absolute;
+                transform-style: preserve-3d;
+                filter: drop-shadow(0 5px 8px rgba(0,0,0,0.1));
+            }
+            
+            .float-piano { opacity: 0.08; }
+            .float-note { opacity: 0.07; }
+            
+            .anim1 { animation: floatRandom1 20s ease-in-out infinite; }
+            .anim2 { animation: floatRandom2 24s ease-in-out infinite; }
+            .anim3 { animation: floatRandom3 18s ease-in-out infinite; }
+            .anim4 { animation: floatRandom4 28s ease-in-out infinite; }
+            
+            /* Light Mode: Black keys, Orange accidentals */
+            .float-piano .white-key { fill: rgba(0,0,0,0.7); }
+            .float-piano .black-key { fill: #f97316; }
+            
+            /* Dark Mode: White keys, Red accidentals */
+            .dark .float-piano .white-key { fill: rgba(255,255,255,0.8); }
+            .dark .float-piano .black-key { fill: #ef4444; }
+            
+            /* Light Mode: Dark notes */
+            .float-note { fill: rgba(0,0,0,0.7); }
+            /* Dark Mode: Gold notes */
+            .dark .float-note { fill: rgba(251,191,36,0.8); }
+        </style>
+        
+        <!-- Pianos (15) -->
+        <svg class="float-element float-piano anim1 w-24 h-16" style="top:5%;left:5%;" viewBox="0 0 120 80"><rect class="white-key" x="10" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="30" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="50" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="70" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="90" y="20" width="18" height="50" rx="4"/><rect class="black-key" x="24" y="20" width="10" height="30" rx="2"/><rect class="black-key" x="44" y="20" width="10" height="30" rx="2"/><rect class="black-key" x="84" y="20" width="10" height="30" rx="2"/></svg>
+        <svg class="float-element float-piano anim2 w-32 h-20" style="top:12%;right:8%;" viewBox="0 0 120 80"><rect class="white-key" x="10" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="30" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="50" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="70" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="90" y="20" width="18" height="50" rx="4"/><rect class="black-key" x="24" y="20" width="10" height="30" rx="2"/><rect class="black-key" x="44" y="20" width="10" height="30" rx="2"/><rect class="black-key" x="84" y="20" width="10" height="30" rx="2"/></svg>
+        <svg class="float-element float-piano anim3 w-16 h-10" style="top:25%;left:20%;" viewBox="0 0 120 80"><rect class="white-key" x="10" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="30" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="50" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="70" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="90" y="20" width="18" height="50" rx="4"/><rect class="black-key" x="24" y="20" width="10" height="30" rx="2"/><rect class="black-key" x="44" y="20" width="10" height="30" rx="2"/><rect class="black-key" x="84" y="20" width="10" height="30" rx="2"/></svg>
+        <svg class="float-element float-piano anim4 w-20 h-12" style="top:35%;right:15%;" viewBox="0 0 120 80"><rect class="white-key" x="10" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="30" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="50" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="70" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="90" y="20" width="18" height="50" rx="4"/><rect class="black-key" x="24" y="20" width="10" height="30" rx="2"/><rect class="black-key" x="44" y="20" width="10" height="30" rx="2"/><rect class="black-key" x="84" y="20" width="10" height="30" rx="2"/></svg>
+        <svg class="float-element float-piano anim1 w-28 h-18" style="top:45%;left:3%;" viewBox="0 0 120 80"><rect class="white-key" x="10" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="30" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="50" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="70" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="90" y="20" width="18" height="50" rx="4"/><rect class="black-key" x="24" y="20" width="10" height="30" rx="2"/><rect class="black-key" x="44" y="20" width="10" height="30" rx="2"/><rect class="black-key" x="84" y="20" width="10" height="30" rx="2"/></svg>
+        <svg class="float-element float-piano anim2 w-36 h-24" style="top:55%;right:5%;" viewBox="0 0 120 80"><rect class="white-key" x="10" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="30" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="50" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="70" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="90" y="20" width="18" height="50" rx="4"/><rect class="black-key" x="24" y="20" width="10" height="30" rx="2"/><rect class="black-key" x="44" y="20" width="10" height="30" rx="2"/><rect class="black-key" x="84" y="20" width="10" height="30" rx="2"/></svg>
+        <svg class="float-element float-piano anim3 w-12 h-8" style="top:60%;left:45%;" viewBox="0 0 120 80"><rect class="white-key" x="10" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="30" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="50" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="70" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="90" y="20" width="18" height="50" rx="4"/><rect class="black-key" x="24" y="20" width="10" height="30" rx="2"/><rect class="black-key" x="44" y="20" width="10" height="30" rx="2"/><rect class="black-key" x="84" y="20" width="10" height="30" rx="2"/></svg>
+        <svg class="float-element float-piano anim4 w-40 h-28" style="bottom:10%;left:12%;" viewBox="0 0 120 80"><rect class="white-key" x="10" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="30" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="50" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="70" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="90" y="20" width="18" height="50" rx="4"/><rect class="black-key" x="24" y="20" width="10" height="30" rx="2"/><rect class="black-key" x="44" y="20" width="10" height="30" rx="2"/><rect class="black-key" x="84" y="20" width="10" height="30" rx="2"/></svg>
+        <svg class="float-element float-piano anim1 w-18 h-12" style="bottom:15%;right:25%;" viewBox="0 0 120 80"><rect class="white-key" x="10" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="30" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="50" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="70" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="90" y="20" width="18" height="50" rx="4"/><rect class="black-key" x="24" y="20" width="10" height="30" rx="2"/><rect class="black-key" x="44" y="20" width="10" height="30" rx="2"/><rect class="black-key" x="84" y="20" width="10" height="30" rx="2"/></svg>
+        <svg class="float-element float-piano anim2 w-24 h-16" style="bottom:25%;left:25%;" viewBox="0 0 120 80"><rect class="white-key" x="10" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="30" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="50" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="70" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="90" y="20" width="18" height="50" rx="4"/><rect class="black-key" x="24" y="20" width="10" height="30" rx="2"/><rect class="black-key" x="44" y="20" width="10" height="30" rx="2"/><rect class="black-key" x="84" y="20" width="10" height="30" rx="2"/></svg>
+        <svg class="float-element float-piano anim3 w-32 h-20" style="bottom:5%;right:15%;" viewBox="0 0 120 80"><rect class="white-key" x="10" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="30" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="50" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="70" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="90" y="20" width="18" height="50" rx="4"/><rect class="black-key" x="24" y="20" width="10" height="30" rx="2"/><rect class="black-key" x="44" y="20" width="10" height="30" rx="2"/><rect class="black-key" x="84" y="20" width="10" height="30" rx="2"/></svg>
+        <svg class="float-element float-piano anim4 w-14 h-10" style="top:50%;left:10%;" viewBox="0 0 120 80"><rect class="white-key" x="10" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="30" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="50" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="70" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="90" y="20" width="18" height="50" rx="4"/><rect class="black-key" x="24" y="20" width="10" height="30" rx="2"/><rect class="black-key" x="44" y="20" width="10" height="30" rx="2"/><rect class="black-key" x="84" y="20" width="10" height="30" rx="2"/></svg>
+        <svg class="float-element float-piano anim1 w-20 h-14" style="top:75%;left:60%;" viewBox="0 0 120 80"><rect class="white-key" x="10" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="30" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="50" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="70" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="90" y="20" width="18" height="50" rx="4"/><rect class="black-key" x="24" y="20" width="10" height="30" rx="2"/><rect class="black-key" x="44" y="20" width="10" height="30" rx="2"/><rect class="black-key" x="84" y="20" width="10" height="30" rx="2"/></svg>
+        <svg class="float-element float-piano anim2 w-28 h-18" style="top:85%;right:10%;" viewBox="0 0 120 80"><rect class="white-key" x="10" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="30" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="50" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="70" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="90" y="20" width="18" height="50" rx="4"/><rect class="black-key" x="24" y="20" width="10" height="30" rx="2"/><rect class="black-key" x="44" y="20" width="10" height="30" rx="2"/><rect class="black-key" x="84" y="20" width="10" height="30" rx="2"/></svg>
+        <svg class="float-element float-piano anim3 w-36 h-24" style="top:2%;left:40%;" viewBox="0 0 120 80"><rect class="white-key" x="10" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="30" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="50" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="70" y="20" width="18" height="50" rx="4"/><rect class="white-key" x="90" y="20" width="18" height="50" rx="4"/><rect class="black-key" x="24" y="20" width="10" height="30" rx="2"/><rect class="black-key" x="44" y="20" width="10" height="30" rx="2"/><rect class="black-key" x="84" y="20" width="10" height="30" rx="2"/></svg>
+        
+        <!-- Notes (10) -->
+        <svg class="float-element float-note anim1 w-10 h-10" style="top:5%;left:15%;" viewBox="0 0 512 512"><path d="M499.1 6.3c8.1 6 12.9 15.6 12.9 25.7v72V368c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V147L192 223.8V432c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V200 128c0-14.1 9.3-26.6 22.8-30.7l320-96c9.7-2.9 20.2-1.1 28.3 5z"/></svg>
+        <svg class="float-element float-note anim2 w-8 h-12" style="top:18%;right:18%;" viewBox="0 0 384 512"><path d="M381.9 388.2c-6.4 27.4-27.2 42.8-55.1 48-24.5 4.5-44.9 5.6-64.5-10.2-23.9-20.1-24.2-53.4-2.7-74.4 17-16.2 40.9-19.5 76.8-25.8 6-1.1 11.2-2.5 15.6-7.4 6.4-7.2 4.4-4.1 4.4-163.2 0-11.2-5.5-14.3-17-12.3-8.2 1.4-185.7 34.6-185.7 34.6-10.2 2.2-13.4 5.2-13.4 16.7 0 234.7 1.1 223.9-2.5 239.5-4.2 18.2-15.4 31.9-30.2 39.5-16.8 9.3-47.2 13.4-63.4 10.4-43.2-8.1-58.4-58-29.1-86.6 17-16.2 40.9-19.5 76.8-25.8 6-1.1 11.2-2.5 15.6-7.4 10.1-11.5 1.8-256.6 5.2-270.2 .8-5.2 3-9.6 7.1-12.9 4.2-3.5 11.8-5.5 13.4-5.5 204-38.2 228.9-43.1 232.4-43.1 11.5-.8 18.1 6 18.1 17.6 .2 344.5 1.1 326-1.8 338.5z"/></svg>
+        <svg class="float-element float-note anim3 w-6 h-6" style="top:32%;left:8%;" viewBox="0 0 512 512"><path d="M499.1 6.3c8.1 6 12.9 15.6 12.9 25.7v72V368c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V147L192 223.8V432c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V200 128c0-14.1 9.3-26.6 22.8-30.7l320-96c9.7-2.9 20.2-1.1 28.3 5z"/></svg>
+        <svg class="float-element float-note anim4 w-12 h-16" style="top:48%;right:12%;" viewBox="0 0 384 512"><path d="M381.9 388.2c-6.4 27.4-27.2 42.8-55.1 48-24.5 4.5-44.9 5.6-64.5-10.2-23.9-20.1-24.2-53.4-2.7-74.4 17-16.2 40.9-19.5 76.8-25.8 6-1.1 11.2-2.5 15.6-7.4 6.4-7.2 4.4-4.1 4.4-163.2 0-11.2-5.5-14.3-17-12.3-8.2 1.4-185.7 34.6-185.7 34.6-10.2 2.2-13.4 5.2-13.4 16.7 0 234.7 1.1 223.9-2.5 239.5-4.2 18.2-15.4 31.9-30.2 39.5-16.8 9.3-47.2 13.4-63.4 10.4-43.2-8.1-58.4-58-29.1-86.6 17-16.2 40.9-19.5 76.8-25.8 6-1.1 11.2-2.5 15.6-7.4 10.1-11.5 1.8-256.6 5.2-270.2 .8-5.2 3-9.6 7.1-12.9 4.2-3.5 11.8-5.5 13.4-5.5 204-38.2 228.9-43.1 232.4-43.1 11.5-.8 18.1 6 18.1 17.6 .2 344.5 1.1 326-1.8 338.5z"/></svg>
+        <svg class="float-element float-note anim1 w-7 h-7" style="top:55%;left:28%;" viewBox="0 0 512 512"><path d="M499.1 6.3c8.1 6 12.9 15.6 12.9 25.7v72V368c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V147L192 223.8V432c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V200 128c0-14.1 9.3-26.6 22.8-30.7l320-96c9.7-2.9 20.2-1.1 28.3 5z"/></svg>
+        <svg class="float-element float-note anim2 w-9 h-12" style="top:68%;left:42%;" viewBox="0 0 384 512"><path d="M381.9 388.2c-6.4 27.4-27.2 42.8-55.1 48-24.5 4.5-44.9 5.6-64.5-10.2-23.9-20.1-24.2-53.4-2.7-74.4 17-16.2 40.9-19.5 76.8-25.8 6-1.1 11.2-2.5 15.6-7.4 6.4-7.2 4.4-4.1 4.4-163.2 0-11.2-5.5-14.3-17-12.3-8.2 1.4-185.7 34.6-185.7 34.6-10.2 2.2-13.4 5.2-13.4 16.7 0 234.7 1.1 223.9-2.5 239.5-4.2 18.2-15.4 31.9-30.2 39.5-16.8 9.3-47.2 13.4-63.4 10.4-43.2-8.1-58.4-58-29.1-86.6 17-16.2 40.9-19.5 76.8-25.8 6-1.1 11.2-2.5 15.6-7.4 10.1-11.5 1.8-256.6 5.2-270.2 .8-5.2 3-9.6 7.1-12.9 4.2-3.5 11.8-5.5 13.4-5.5 204-38.2 228.9-43.1 232.4-43.1 11.5-.8 18.1 6 18.1 17.6 .2 344.5 1.1 326-1.8 338.5z"/></svg>
+        <svg class="float-element float-note anim3 w-8 h-8" style="top:75%;right:22%;" viewBox="0 0 512 512"><path d="M499.1 6.3c8.1 6 12.9 15.6 12.9 25.7v72V368c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V147L192 223.8V432c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V200 128c0-14.1 9.3-26.6 22.8-30.7l320-96c9.7-2.9 20.2-1.1 28.3 5z"/></svg>
+        <svg class="float-element float-note anim4 w-6 h-8" style="top:82%;left:55%;" viewBox="0 0 384 512"><path d="M381.9 388.2c-6.4 27.4-27.2 42.8-55.1 48-24.5 4.5-44.9 5.6-64.5-10.2-23.9-20.1-24.2-53.4-2.7-74.4 17-16.2 40.9-19.5 76.8-25.8 6-1.1 11.2-2.5 15.6-7.4 6.4-7.2 4.4-4.1 4.4-163.2 0-11.2-5.5-14.3-17-12.3-8.2 1.4-185.7 34.6-185.7 34.6-10.2 2.2-13.4 5.2-13.4 16.7 0 234.7 1.1 223.9-2.5 239.5-4.2 18.2-15.4 31.9-30.2 39.5-16.8 9.3-47.2 13.4-63.4 10.4-43.2-8.1-58.4-58-29.1-86.6 17-16.2 40.9-19.5 76.8-25.8 6-1.1 11.2-2.5 15.6-7.4 10.1-11.5 1.8-256.6 5.2-270.2 .8-5.2 3-9.6 7.1-12.9 4.2-3.5 11.8-5.5 13.4-5.5 204-38.2 228.9-43.1 232.4-43.1 11.5-.8 18.1 6 18.1 17.6 .2 344.5 1.1 326-1.8 338.5z"/></svg>
+        <svg class="float-element float-note anim1 w-10 h-10" style="top:90%;right:10%;" viewBox="0 0 512 512"><path d="M499.1 6.3c8.1 6 12.9 15.6 12.9 25.7v72V368c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V147L192 223.8V432c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V200 128c0-14.1 9.3-26.6 22.8-30.7l320-96c9.7-2.9 20.2-1.1 28.3 5z"/></svg>
+        <svg class="float-element float-note anim2 w-8 h-10" style="top:95%;left:5%;" viewBox="0 0 384 512"><path d="M381.9 388.2c-6.4 27.4-27.2 42.8-55.1 48-24.5 4.5-44.9 5.6-64.5-10.2-23.9-20.1-24.2-53.4-2.7-74.4 17-16.2 40.9-19.5 76.8-25.8 6-1.1 11.2-2.5 15.6-7.4 6.4-7.2 4.4-4.1 4.4-163.2 0-11.2-5.5-14.3-17-12.3-8.2 1.4-185.7 34.6-185.7 34.6-10.2 2.2-13.4 5.2-13.4 16.7 0 234.7 1.1 223.9-2.5 239.5-4.2 18.2-15.4 31.9-30.2 39.5-16.8 9.3-47.2 13.4-63.4 10.4-43.2-8.1-58.4-58-29.1-86.6 17-16.2 40.9-19.5 76.8-25.8 6-1.1 11.2-2.5 15.6-7.4 10.1-11.5 1.8-256.6 5.2-270.2 .8-5.2 3-9.6 7.1-12.9 4.2-3.5 11.8-5.5 13.4-5.5 204-38.2 228.9-43.1 232.4-43.1 11.5-.8 18.1 6 18.1 17.6 .2 344.5 1.1 326-1.8 338.5z"/></svg>
+    </div>
+    <!-- === END FLOATING PIANO BACKGROUND === -->
+
+    <div class="flex flex-col items-center justify-center h-full px-8 py-12 relative z-10">
+        <!-- Ícone Principal: Logo Piano Animado (5 Teclas) -->
+        <div class="mb-10 relative group">
+            <div class="absolute -inset-4 bg-amber/20 dark:bg-gold/10 rounded-full blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+            <svg class="w-32 h-32 text-amber dark:text-gold relative z-10 drop-shadow-[0_0_15px_rgba(251,191,36,0.5)]" viewBox="0 0 120 80" fill="currentColor">
+                <style>
+                    @keyframes pingPong {
+                        0%, 100% { transform: translateY(0); }
+                        50% { transform: translateY(-15px); }
+                    }
+                    .key { rx: 4; stroke: rgba(0,0,0,0.2); stroke-width: 1; vector-effect: non-scaling-stroke; }
+                    /* Teclas Brancas */
+                    .k1 { animation: pingPong 0.8s ease-in-out infinite; animation-delay: 0.0s; }
+                    .k2 { animation: pingPong 0.8s ease-in-out infinite; animation-delay: 0.15s; }
+                    .k3 { animation: pingPong 0.8s ease-in-out infinite; animation-delay: 0.3s; }
+                    .k4 { animation: pingPong 0.8s ease-in-out infinite; animation-delay: 0.45s; }
+                    .k5 { animation: pingPong 0.8s ease-in-out infinite; animation-delay: 0.6s; }
+                    
+                    /* Teclas Pretas (Acidentais) - Delays intermediários */
+                    .ak1 { animation: pingPong 0.8s ease-in-out infinite; animation-delay: 0.07s; }
+                    .ak2 { animation: pingPong 0.8s ease-in-out infinite; animation-delay: 0.22s; }
+                    .ak3 { animation: pingPong 0.8s ease-in-out infinite; animation-delay: 0.52s; }
+                </style>
+                
+                <!-- 5 Teclas Naturais (Douradas & Animadas) -->
+                <rect class="key k1" x="10" y="20" width="18" height="50" fill="currentColor" />
+                <rect class="key k2" x="30" y="20" width="18" height="50" fill="currentColor" />
+                <rect class="key k3" x="50" y="20" width="18" height="50" fill="currentColor" />
+                <rect class="key k4" x="70" y="20" width="18" height="50" fill="currentColor" />
+                <rect class="key k5" x="90" y="20" width="18" height="50" fill="currentColor" />
+
+                <!-- Teclas Acidentais (Pretas/Escuras) -->
+                <rect class="key ak1" x="24" y="20" width="10" height="30" rx="1" fill="rgba(0,0,0,0.6)" />
+                <rect class="key ak2" x="44" y="20" width="10" height="30" rx="1" fill="rgba(0,0,0,0.6)" />
+                <rect class="key ak3" x="84" y="20" width="10" height="30" rx="1" fill="rgba(0,0,0,0.6)" />
+            </svg>
+        </div>
+
+        <!-- Título Principal -->
+        <h1 class="title-italic text-5xl md:text-7xl text-ink dark:text-gold leading-tight mb-4">
+            Manual Mestre
+        </h1>
+        <p class="uppercase tracking-[0.5em] text-amber dark:text-gold font-black text-xs mb-8">
+            A Engenharia do Piano
+        </p>
+
+        <!-- Divisor -->
+        <div class="w-40 h-1 bg-gradient-to-r from-transparent via-amber/50 dark:via-gold/50 to-transparent mx-auto mb-10 rounded-full"></div>
+
+        <!-- Descrição -->
+        <p class="max-w-2xl text-stone-500 dark:text-stone-400 font-serif italic text-lg leading-relaxed mb-12">
+            Um curso completo de teoria musical e técnica pianística, do som à improvisação. 
+            12 módulos que transformam iniciantes em músicos conscientes.
+        </p>
+
+        <!-- Módulos Grid -->
+        <div class="grid grid-cols-3 md:grid-cols-6 gap-4 max-w-3xl mx-auto mb-12">
+            <div class="text-center p-3 bg-white/5 dark:bg-stone-900/30 rounded-xl border border-stone-200/20 dark:border-stone-700/30">
+                <span class="block text-2xl mb-1">🎵</span>
+                <span class="text-[10px] text-stone-500 uppercase tracking-wide">Som</span>
+            </div>
+            <div class="text-center p-3 bg-white/5 dark:bg-stone-900/30 rounded-xl border border-stone-200/20 dark:border-stone-700/30">
+                <span class="block text-2xl mb-1">🎹</span>
+                <span class="text-[10px] text-stone-500 uppercase tracking-wide">Piano</span>
+            </div>
+            <div class="text-center p-3 bg-white/5 dark:bg-stone-900/30 rounded-xl border border-stone-200/20 dark:border-stone-700/30">
+                <span class="block text-2xl mb-1">📜</span>
+                <span class="text-[10px] text-stone-500 uppercase tracking-wide">Notação</span>
+            </div>
+            <div class="text-center p-3 bg-white/5 dark:bg-stone-900/30 rounded-xl border border-stone-200/20 dark:border-stone-700/30">
+                <span class="block text-2xl mb-1">📏</span>
+                <span class="text-[10px] text-stone-500 uppercase tracking-wide">Intervalos</span>
+            </div>
+            <div class="text-center p-3 bg-white/5 dark:bg-stone-900/30 rounded-xl border border-stone-200/20 dark:border-stone-700/30">
+                <span class="block text-2xl mb-1">🎼</span>
+                <span class="text-[10px] text-stone-500 uppercase tracking-wide">Escalas</span>
+            </div>
+            <div class="text-center p-3 bg-white/5 dark:bg-stone-900/30 rounded-xl border border-stone-200/20 dark:border-stone-700/30">
+                <span class="block text-2xl mb-1">🎶</span>
+                <span class="text-[10px] text-stone-500 uppercase tracking-wide">Acordes</span>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <p class="text-amber dark:text-gold text-sm font-bold uppercase tracking-widest animate-pulse">
+            ← Deslize para começar →
+        </p>
+    </div>
+</section>
+
+

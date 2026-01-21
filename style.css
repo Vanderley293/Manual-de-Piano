@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Inter:wght@300;400;600;700;900&display=swap');
 
-/* GLOBAL & RESET */
+/* CONFIGURAÇÃO DE CORES (Edite aqui para mudar o tema) */
 :root {
-    --sepia: #fdfaf3;
-    --ink: #1c1917;
-    --amber: #b45309;
-    --gold: #fbbf24;
-    --darkbg: #0c0a09;
-    --darkcard: #1c1c1c;
+    --sepia: #fdfaf3;    /* Cor de fundo (Modo Claro) */
+    --ink: #1c1917;      /* Cor do texto principal */
+    --amber: #b45309;    /* Cor de destaque (Botões/Links) */
+    --gold: #fbbf24;     /* Cor de destaque (Modo Escuro) */
+    --darkbg: #0c0a09;   /* Cor de fundo (Modo Escuro) */
+    --darkcard: #1c1c1c; /* Cor dos cartões (Modo Escuro) */
 }
 
 body {
@@ -43,7 +43,7 @@ body {
     position: fixed;
     top: 0;
     bottom: 0;
-    width: 15vw;
+    width: 5vw;
     z-index: 30;
     cursor: pointer;
     transition: background 0.3s;
@@ -224,3 +224,401 @@ details > summary::-webkit-details-marker {
         background-color: #1c1917 !important;
     }
 }
+
+/* Brightness Slider & Logic */
+#brightness-container {
+    width: 0;
+    opacity: 0;
+    padding-right: 0;
+    overflow: hidden;
+    /* No CSS transition, handled by Anime.js */
+}
+
+/* Custom Range Input */
+#brightness-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    background: transparent;
+}
+#brightness-slider:focus {
+    outline: none;
+}
+#brightness-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background: var(--amber); /* Orange accent */
+    cursor: pointer;
+    margin-top: -4px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    transition: transform 0.1s;
+}
+#brightness-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.3);
+}
+#brightness-slider::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 4px;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+}
+
+/* Note Animation */
+@keyframes floatNote {
+    0% { opacity: 0; transform: translateY(5px) scale(0.9); }
+    15% { opacity: 1; transform: translateY(0) scale(1); }
+    85% { opacity: 1; transform: translateY(0) scale(1); }
+    100% { opacity: 0; transform: translateY(-5px) scale(0.9); }
+}
+.note-float {
+    animation: floatNote 3s ease-in-out infinite;
+}
+
+/* Jump to Slide & Universal Search Interaction (Stage 2) */
+#search-nav-wrapper {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    max-width: calc(100vw - 2.5rem); 
+}
+
+@media (max-width: 640px) {
+    #search-nav-wrapper {
+        right: 1.25rem; /* Ajuste para ~20px */
+        bottom: 2.25rem; /* Sobe um pouco mais para evitar barras de navegação do SO */
+    }
+    
+    #search-results-panel {
+        width: calc(100vw - 2.5rem) !important;
+        max-width: 310px;
+    }
+}
+
+#search-nav-container:focus-within {
+    background-color: rgba(26, 26, 26, 0.95);
+    border-color: rgba(251, 191, 36, 0.3);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.dark #search-nav-container:focus-within {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+#universal-search-input {
+    caret-color: #fbbf24;
+    transition: all 0.3s ease;
+}
+
+#universal-search-input:focus {
+    width: 200px; 
+}
+
+#universal-search-input::placeholder {
+    opacity: 0.3;
+}
+
+/* Search Highlights */
+.search-highlight {
+    background-color: rgba(251, 191, 36, 0.4);
+    color: #000;
+    padding: 2px 4px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(251, 191, 36, 0.3);
+    font-weight: bold;
+}
+
+.dark .search-highlight {
+    background-color: rgba(251, 191, 36, 0.6);
+    color: #fff;
+}
+
+/* Search Results Panel */
+#search-results-panel.visible {
+    display: flex;
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.search-result-item {
+    padding: 10px 20px;
+    transition: all 0.2s;
+    cursor: pointer;
+    border-left: 3px solid transparent;
+}
+
+.search-result-item:hover {
+    background-color: rgba(251, 191, 36, 0.1);
+    border-left-color: #fbbf24;
+}
+
+.search-result-item .result-title {
+    display: block;
+    font-size: 11px;
+    color: #fff;
+    margin-bottom: 2px;
+}
+
+.search-result-item .result-chapter {
+    display: block;
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.5;
+    color: #fbbf24;
+}
+
+.search-result-item .result-snippet {
+    display: block;
+    font-size: 10px;
+    color: #a8a29e;
+    font-style: italic;
+    margin-top: 4px;
+    line-height: 1.4;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.search-result-item:hover .result-snippet {
+    max-height: 50px;
+    opacity: 1;
+    margin-top: 8px;
+    color: #d6d3d1;
+}
+
+.search-result-item .result-snippet b {
+    color: #fbbf24;
+    font-weight: 900;
+}
+/* Sound Bars Animation (30% Reduced Symmetrical Wave) */
+.sound-bars {
+    display: flex;
+    align-items: center;
+    gap: 4px; /* Reduzido 30% de 6px */
+    height: 64px; /* Reduzido ~30% de 90px */
+    justify-content: center;
+}
+
+.sound-bars .bar {
+    width: 6px; /* Reduzido ~30% de 8px */
+    background: currentColor;
+    border-radius: 12px;
+    animation: soundBarWave 1.2s ease-in-out infinite;
+    transform-origin: center;
+}
+
+@keyframes soundBarWave {
+    0%, 100% { transform: scaleY(1); opacity: 0.6; }
+    50% { transform: scaleY(1.4); opacity: 1; }
+}
+
+/* Base Heights for Symmetrical "Reduced Wave" Shape (13 bars) */
+.sound-bars .bar:nth-child(1), .sound-bars .bar:nth-child(13) { height: 20%; animation-delay: 0.1s; animation-duration: 1.0s; }
+.sound-bars .bar:nth-child(2), .sound-bars .bar:nth-child(12) { height: 35%; animation-delay: 0.3s; animation-duration: 1.3s; }
+.sound-bars .bar:nth-child(3), .sound-bars .bar:nth-child(11) { height: 55%; animation-delay: 0.2s; animation-duration: 0.9s; }
+.sound-bars .bar:nth-child(4), .sound-bars .bar:nth-child(10) { height: 75%; animation-delay: 0.4s; animation-duration: 1.1s; }
+.sound-bars .bar:nth-child(5), .sound-bars .bar:nth-child(9) { height: 85%; animation-delay: 0.1s; animation-duration: 1.0s; }
+.sound-bars .bar:nth-child(6), .sound-bars .bar:nth-child(8) { height: 95%; animation-delay: 0.3s; animation-duration: 1.2s; }
+.sound-bars .bar:nth-child(7) { height: 100%; animation-delay: 0.0s; animation-duration: 0.8s; }
+/* Visualizer Responsive (Radial) */
+.rays-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Remover largura/altura fixa para permitir escala 3D */
+    width: 100%; 
+    height: 100%;
+}
+
+/* Tamanho específico apenas para o elemento de destaque (capa) */
+.capa-main-visualizer {
+    width: 240px;
+    height: 240px;
+    margin-bottom: 2rem;
+}
+
+.visualizer-rays {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.ray {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0.8%; /* Proporcional (2px de 240px) */
+    height: 5%;   /* Proporcional (12px de 240px) */
+    background: currentColor;
+    border-radius: 4px;
+    transform: rotate(var(--r)) translate(-50%, -470%); /* -470% do próprio height aprox */
+    opacity: 0.2;
+    animation: rayPulse 1.8s ease-in-out infinite;
+}
+
+/* Keyframes ajustados para porcentagem do raio */
+@keyframes rayPulse {
+    0%, 100% { transform: rotate(var(--r)) translate(-50%, -950%) scaleY(1); opacity: 0.2; }
+    50% { transform: rotate(var(--r)) translate(-50%, -1050%) scaleY(1.6); opacity: 0.6; }
+}
+
+/* Sound Bars (Inside Circle) - Proporcional */
+.sound-bars {
+    display: flex;
+    align-items: center;
+    gap: 4%;
+    height: 35%; /* Proporcional ao container */
+    justify-content: center;
+}
+
+.sound-bars .bar {
+    width: 3%;
+    background: currentColor;
+    border-radius: 12px;
+    animation: soundBarWave 1.2s ease-in-out infinite;
+    transform-origin: center;
+}
+
+@keyframes soundBarWave {
+    0%, 100% { transform: scaleY(1); opacity: 0.6; }
+    50% { transform: scaleY(1.4); opacity: 1; }
+}
+
+/* Precise rotation for 32 rays using variables */
+.ray:nth-child(1) { --r: 0deg; animation-delay: 0.0s; }
+.ray:nth-child(2) { --r: 11.25deg; animation-delay: 0.1s; }
+.ray:nth-child(3) { --r: 22.5deg; animation-delay: 0.2s; }
+.ray:nth-child(4) { --r: 33.75deg; animation-delay: 0.3s; }
+.ray:nth-child(5) { --r: 45deg; animation-delay: 0.4s; }
+.ray:nth-child(6) { --r: 56.25deg; animation-delay: 0.5s; }
+.ray:nth-child(7) { --r: 67.5deg; animation-delay: 0.6s; }
+.ray:nth-child(8) { --r: 78.75deg; animation-delay: 0.7s; }
+.ray:nth-child(9) { --r: 90deg; animation-delay: 0.8s; }
+.ray:nth-child(10) { --r: 101.25deg; animation-delay: 0.9s; }
+.ray:nth-child(11) { --r: 112.5deg; animation-delay: 1.0s; }
+.ray:nth-child(12) { --r: 123.75deg; animation-delay: 1.1s; }
+.ray:nth-child(13) { --r: 135deg; animation-delay: 1.2s; }
+.ray:nth-child(14) { --r: 146.25deg; animation-delay: 1.3s; }
+.ray:nth-child(15) { --r: 157.5deg; animation-delay: 1.4s; }
+.ray:nth-child(16) { --r: 168.75deg; animation-delay: 1.5s; }
+.ray:nth-child(17) { --r: 180deg; animation-delay: 0.0s; }
+.ray:nth-child(18) { --r: 191.25deg; animation-delay: 0.1s; }
+.ray:nth-child(19) { --r: 202.5deg; animation-delay: 0.2s; }
+.ray:nth-child(20) { --r: 213.75deg; animation-delay: 0.3s; }
+.ray:nth-child(21) { --r: 225deg; animation-delay: 0.4s; }
+.ray:nth-child(22) { --r: 236.25deg; animation-delay: 0.5s; }
+.ray:nth-child(23) { --r: 247.5deg; animation-delay: 0.6s; }
+.ray:nth-child(24) { --r: 258.75deg; animation-delay: 0.7s; }
+.ray:nth-child(25) { --r: 270deg; animation-delay: 0.8s; }
+.ray:nth-child(26) { --r: 281.25deg; animation-delay: 0.9s; }
+.ray:nth-child(27) { --r: 292.5deg; animation-delay: 1.0s; }
+.ray:nth-child(28) { --r: 303.75deg; animation-delay: 1.1s; }
+.ray:nth-child(29) { --r: 315deg; animation-delay: 1.2s; }
+.ray:nth-child(30) { --r: 326.25deg; animation-delay: 1.3s; }
+.ray:nth-child(31) { --r: 337.5deg; animation-delay: 1.4s; }
+.ray:nth-child(32) { --r: 348.75deg; animation-delay: 1.5s; }
+
+/* Orbiting Musical Notes (Chapter 3) */
+.orbit-container {
+    position: relative;
+    width: 240px;
+    height: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.musical-notes-orbit {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    animation: mainOrbitRotate 20s linear infinite;
+}
+
+.orbit-note {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    color: currentColor;
+    /* Usa a variável --ao (angle offset) para posicionar */
+    transform: rotate(var(--ao)) translate(110px) rotate(calc(-1 * var(--ao)));
+}
+
+@keyframes mainOrbitRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Sub-animação para as notas manterem a verticalidade ou balançarem */
+.orbit-note svg {
+    animation: noteWobble 3s ease-in-out infinite;
+}
+
+@keyframes noteWobble {
+    0%, 100% { transform: rotate(-10deg) translateY(0); }
+    50% { transform: rotate(10deg) translateY(-5px); }
+}
+
+/* Individual angles for 4 notes */
+.orbit-note:nth-child(1) { --ao: 0deg; }
+.orbit-note:nth-child(2) { --ao: 90deg; }
+.orbit-note:nth-child(3) { --ao: 180deg; }
+.orbit-note:nth-child(4) { --ao: 270deg; }
+
+/* Botões de Play para Compassos */
+.play-btn {
+    width: 44px;
+    height: 44px;
+    aspect-ratio: 1 / 1;
+    flex-shrink: 0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.play-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Cores específicas conforme pedido */
+.btn-red { background: #ef4444; }
+.btn-blue { background: #3b82f6; }
+.btn-purple { background: #a855f7; }
+.btn-green { background: #84cc16; }
+
+/* Estado Ativo (Tocando) */
+.play-btn.is-playing {
+    animation: btnPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes btnPulse {
+    0%, 100% { 
+        transform: scale(1); 
+        box-shadow: 0 0 0 0 rgba(0,0,0,0.4); 
+    }
+    50% { 
+        transform: scale(1.2); 
+        box-shadow: 0 0 20px 10px rgba(0,0,0,0); 
+    }
+}
+
+.play-btn svg {
+    width: 18px;
+    height: 18px;
+}
+.play-btn .stop-icon { display: none; }
+.play-btn.is-playing .play-icon { display: none; }
+.play-btn.is-playing .stop-icon { display: block; }

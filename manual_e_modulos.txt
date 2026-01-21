@@ -1,0 +1,40 @@
+MANUAL E MÓDULOS DO PROJETO
+
+Módulo 0: Arquitetura Corporal
+Arquivo: chapters/00_mechanics.html
+
+Capítulo 1: A Física do Som
+Arquivo: chapters/01_intro.html
+
+Capítulo 2: Engenharia do Piano
+Arquivo: chapters/02_piano.html
+
+Capítulo 3: Notação Musical
+Arquivo: chapters/03_notation.html
+
+Capítulo 4: Intervalos
+Arquivo: chapters/04_intervals.html
+
+Capítulo 5: Escalas
+Arquivo: chapters/05_scales.html
+
+Capítulo 6: Harmonia
+Arquivo: chapters/06_harmony.html
+
+Capítulo 7: Narrativa Harmônica
+Arquivo: chapters/07_functions.html
+
+Capítulo 8: O GPS Musical
+Arquivo: chapters/08_technique.html
+
+Capítulo 9: Bossa Nova
+Arquivo: chapters/09_bossanova.html
+
+Capítulo 10: Improvisação
+Arquivo: chapters/10_improvisation.html
+
+Capítulo 11: Arranjo
+Arquivo: chapters/11_arranging.html
+
+Capítulo 12: Metodologia
+Arquivo: chapters/12_methodology.html

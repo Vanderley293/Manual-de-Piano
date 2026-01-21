@@ -1,8 +1,50 @@
         <!-- SLIDE 24: CAPA CAPÍTULO 3 -->
         <section class="slide-section text-center" data-chapter="Capítulo 3" data-title="Capa">
-            <div class="inline-block p-6 mb-6 bg-white/50 dark:bg-darkcard/50 rounded-full shadow-sm border border-stone-100 dark:border-stone-800">
-                <svg class="w-20 h-20 mx-auto text-amber dark:text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4" />
+            <div class="inline-block p-6 mb-6 bg-ink/5 dark:bg-black/30 backdrop-blur-sm rounded-full shadow-sm border border-stone-100/20 dark:border-white/10 w-48 h-48 flex items-center justify-center mx-auto">
+                <!-- Ícone Animado: Mínima, Semínima, Colcheia e Semicolcheia -->
+                <svg class="w-32 h-32 mx-auto text-amber dark:text-gold" viewBox="0 0 100 60" fill="none" stroke="currentColor">
+                    <!-- Pauta -->
+                    <g stroke-width="0.8" opacity="0.6">
+                        <line x1="10" y1="15" x2="90" y2="15" />
+                        <line x1="10" y1="22.5" x2="90" y2="22.5" />
+                        <line x1="10" y1="30" x2="90" y2="30" />
+                        <line x1="10" y1="37.5" x2="90" y2="37.5" />
+                        <line x1="10" y1="45" x2="90" y2="45" />
+                    </g>
+                    
+                    <style>
+                        @keyframes floatNote {
+                            0%, 100% { transform: translateY(0); }
+                            50% { transform: translateY(-3px); }
+                        }
+                        .anim-note { animation: floatNote 3s ease-in-out infinite; }
+                    </style>
+
+                    <!-- Mínima (Espaço) -->
+                    <g class="anim-note" style="animation-delay: 0s;">
+                        <ellipse cx="25" cy="41.25" rx="3.5" ry="2.5" stroke-width="1.5" />
+                        <path d="M28.5 41.25V18" stroke-width="1.2" stroke-linecap="round" />
+                    </g>
+
+                    <!-- Semínima (Linha) -->
+                    <g class="anim-note" style="animation-delay: 0.5s;">
+                        <ellipse cx="42" cy="30" rx="3.5" ry="2.5" fill="currentColor" stroke="none" />
+                        <path d="M45.5 30V7" stroke-width="1.2" stroke-linecap="round" />
+                    </g>
+
+                    <!-- Colcheia (Espaço) -->
+                    <g class="anim-note" style="animation-delay: 1s;">
+                        <ellipse cx="59" cy="18.75" rx="3.5" ry="2.5" fill="currentColor" stroke="none" />
+                        <path d="M62.5 18.75V0" stroke-width="1.2" stroke-linecap="round" />
+                        <path d="M62.5 0c4 2 6 6 6 6" stroke-width="1.2" stroke-linecap="round" />
+                    </g>
+
+                    <!-- Semicolcheia (Linha) -->
+                    <g class="anim-note" style="animation-delay: 1.5s;">
+                        <ellipse cx="76" cy="37.5" rx="3.5" ry="2.5" fill="currentColor" stroke="none" />
+                        <path d="M79.5 37.5V15" stroke-width="1.2" stroke-linecap="round" />
+                        <path d="M79.5 15c4 2 6 6 6 6M79.5 19c4 2 6 6 6 6" stroke-width="1.2" stroke-linecap="round" />
+                    </g>
                 </svg>
             </div>
             <h1 class="title-italic text-5xl md:text-7xl dark:text-gold leading-tight">Capítulo 3</h1>
@@ -50,10 +92,73 @@
                     <div>
                         <h4 class="text-2xl font-bold text-ink dark:text-white mb-4">O que é a Pauta (ou Pentagrama)?</h4>
                         <p class="text-stone-600 dark:text-stone-300">É o "chão" onde escrevemos as notas. São cinco linhas paralelas e os quatro espaços entre elas. Cada linha e espaço representa uma altura musical diferente.</p>
+                        
+                        <div class="mt-8 relative w-full h-32 bg-stone-50 dark:bg-black/20 rounded-xl border border-stone-100 dark:border-white/5 flex items-center justify-center overflow-hidden">
+                            <svg class="w-full max-w-sm h-full" viewBox="0 0 300 120">
+                                <!-- Pauta -->
+                                <g class="stroke-stone-300 dark:stroke-stone-600" stroke-width="2">
+                                    <line x1="10" y1="30" x2="290" y2="30" />
+                                    <line x1="10" y1="45" x2="290" y2="45" />
+                                    <line x1="10" y1="60" x2="290" y2="60" />
+                                    <line x1="10" y1="75" x2="290" y2="75" />
+                                    <line x1="10" y1="90" x2="290" y2="90" />
+                                </g>
+
+                                <!-- Clave de Sol (Text) -->
+                                <text x="5" y="95" font-family="'Segoe UI Symbol', sans-serif" font-size="80" class="fill-stone-600 dark:fill-stone-400">&#119070;</text>
+                                
+                                <!-- Notas Animadas -->
+                                <g class="fill-amber dark:fill-gold">
+                                    <circle cx="80" cy="90" r="7" class="note-float" style="animation-delay: 0s;" />
+                                    <circle cx="125" cy="75" r="7" class="note-float" style="animation-delay: 0.6s;" />
+                                    <circle cx="170" cy="60" r="7" class="note-float" style="animation-delay: 1.2s;" />
+                                    <circle cx="215" cy="45" r="7" class="note-float" style="animation-delay: 1.8s;" />
+                                    <circle cx="260" cy="30" r="7" class="note-float" style="animation-delay: 2.4s;" />
+                                </g>
+                            </svg>
+                            <p class="absolute bottom-2 text-[10px] uppercase tracking-widest text-stone-400">Pauta Ilustrativa</p>
+                        </div>
                     </div>
                     <div class="bg-amber/5 dark:bg-gold/5 p-6 rounded-[2rem] border border-amber/10">
                         <h4 class="font-black text-amber dark:text-gold mb-3 uppercase text-xs tracking-widest">Por que isso importa?</h4>
                         <p class="text-lg italic font-medium leading-relaxed">Sem a pauta, as notas flutuariam no papel sem referência. Elas são as coordenadas verticais do nosso mapa. Quanto mais alta a nota estiver na pauta, mais agudo será o som.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 3b: LINHAS SUPLEMENTARES E MACETES -->
+        <section class="slide-section" data-chapter="Capítulo 3" data-title="3b. Linhas Suplementares e Macetes">
+            <div class="card-container bg-white dark:bg-darkcard p-8 md:p-14 rounded-[3rem] border border-stone-200 dark:border-stone-800 shadow-sm">
+                <h3 class="uppercase text-[11px] font-black tracking-widest text-stone-400 mb-6">3. Navegação Avançada</h3>
+                <h3 class="title-italic text-3xl mb-8 text-ink dark:text-gold">Além das 5 Linhas</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Linhas Suplementares -->
+                    <div>
+                        <h4 class="font-bold text-xl text-ink dark:text-white mb-2">As Linhas Invisíveis</h4>
+                        <p class="text-stone-600 dark:text-stone-300 text-sm mb-4">A música não cabe em apenas 5 linhas. Quando precisamos ir mais alto ou mais grave, usamos <strong>Linhas Suplementares</strong>.</p>
+                        <div class="bg-stone-50 dark:bg-stone-900 p-4 rounded-xl border border-stone-100 dark:border-stone-800 text-center">
+                            <span class="block font-serif italic text-stone-500 mb-1">O Dó Central mora aqui:</span>
+                            <div class="text-4xl font-black text-amber">--o--</div>
+                            <span class="text-[10px] uppercase font-bold tracking-widest text-stone-400">Linha Suplementar Inferior</span>
+                        </div>
+                    </div>
+
+                    <!-- Macetes (FACE) -->
+                    <div>
+                        <h4 class="font-bold text-xl text-ink dark:text-white mb-2">Macetes de Leitura (Clave de Sol)</h4>
+                        <p class="text-stone-600 dark:text-stone-300 text-sm mb-4">Para não contar linha por linha, memorize os pontos fixos:</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-3 bg-stone-50 dark:bg-stone-900 p-3 rounded-xl">
+                                <span class="text-2xl font-black text-amber">F A C E</span>
+                                <span class="text-xs text-stone-500">As notas nos <strong>ESPAÇOS</strong> formam a palavra "FACE". (Fá - Lá - Dó - Mi).</span>
+                            </li>
+                             <li class="flex items-center gap-3 bg-stone-50 dark:bg-stone-900 p-3 rounded-xl">
+                                <span class="text-sm font-bold text-ink dark:text-white">Sol (2ª Linha)</span>
+                                <span class="text-xs text-stone-500">A clave de Sol nasce aqui. É o seu Norte magnético.</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -89,6 +194,39 @@
         </section>
 
         <!-- SLIDE 30: DESDOBRAMENTO - PARTE 2: VALORES RÍTMICOS -->
+        <section class="slide-section" data-chapter="Capítulo 3" data-title="Digitação (Fingering)">
+             <div class="card-container bg-white dark:bg-darkcard p-8 md:p-14 rounded-[3rem] border border-stone-200 dark:border-stone-800 shadow-sm transition-all">
+                <h3 class="uppercase text-[11px] font-black tracking-widest text-stone-400 mb-6">3. Desdobramento Integrado (continuação)</h3>
+                <h3 class="title-italic text-3xl mb-8 text-ink dark:text-gold">Digitação: O Mapa dos Dedos</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="space-y-6">
+                        <p class="text-lg text-stone-600 dark:text-stone-300 leading-relaxed">
+                            Na partitura, frequentemente você verá pequenos números acima ou abaixo das notas. Eles não indicam contagem de tempo, e sim <strong>qual dedo usar</strong>.
+                        </p>
+                        <div class="bg-amber/10 dark:bg-gold/10 p-6 rounded-2xl border-l-4 border-amber dark:border-gold">
+                            <h4 class="font-bold text-amber-800 dark:text-gold uppercase tracking-wider text-xs mb-2">Regra Universal do Piano</h4>
+                            <p class="text-stone-700 dark:text-stone-200">
+                                Os dedos são numerados de <strong>1 a 5</strong>, começando sempre pelo <strong>Polegar</strong>, em ambas as mãos.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-stone-100 dark:bg-stone-900 p-8 rounded-[2rem] text-center border-4 border-white dark:border-stone-800 shadow-xl">
+                        <h4 class="font-bold text-ink dark:text-white mb-6 uppercase tracking-widest text-sm">Mapa Digital</h4>
+                        <div class="space-y-3 font-mono text-sm text-stone-500 dark:text-stone-400">
+                            <div class="flex justify-between items-center bg-white dark:bg-darkcard p-3 rounded-lg px-6 shadow-sm"><span>Polegar</span> <strong class="text-amber text-xl">1</strong></div>
+                            <div class="flex justify-between items-center bg-white dark:bg-darkcard p-3 rounded-lg px-6 shadow-sm"><span>Indicador</span> <strong class="text-ink dark:text-white text-xl">2</strong></div>
+                            <div class="flex justify-between items-center bg-white dark:bg-darkcard p-3 rounded-lg px-6 shadow-sm"><span>Médio</span> <strong class="text-ink dark:text-white text-xl">3</strong></div>
+                            <div class="flex justify-between items-center bg-white dark:bg-darkcard p-3 rounded-lg px-6 shadow-sm"><span>Anelar</span> <strong class="text-ink dark:text-white text-xl">4</strong></div>
+                            <div class="flex justify-between items-center bg-white dark:bg-darkcard p-3 rounded-lg px-6 shadow-sm"><span>Mínimo</span> <strong class="text-ink dark:text-white text-xl">5</strong></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 30b: DESDOBRAMENTO - PARTE 2: VALORES RÍTMICOS -->
         <section class="slide-section" data-chapter="Capítulo 3" data-title="2. Os Valores Rítmicos">
             <div class="card-container bg-white dark:bg-darkcard p-8 md:p-14 rounded-[3rem] border border-stone-200 dark:border-stone-800 shadow-sm transition-all">
                 <h3 class="uppercase text-[11px] font-black tracking-widest text-stone-400 mb-6">3. Desdobramento Integrado (continuação)</h3>
@@ -154,13 +292,49 @@
                 <div class="space-y-8 text-lg leading-relaxed">
                     <p class="text-stone-600 dark:text-stone-300">As notas não ficam soltas no tempo; elas são organizadas em grupos chamados <strong>Compassos</strong>. A <strong>Fórmula de Compasso</strong> (aqueles números no início da pauta, ex: 4/4) nos diz o tamanho dessa "caixa".</p>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="p-6 bg-stone-50 dark:bg-stone-900 rounded-2xl border border-stone-200 dark:border-stone-800">
-                            <strong class="block text-3xl mb-2 text-ink dark:text-white font-serif">4/4</strong>
-                            <p class="text-sm text-stone-600 dark:text-stone-400">"A caixa cabe <strong>4 tempos</strong>. É o ritmo mais comum (Rock, Pop). CONTA-se: <strong>1</strong>-2-3-4."</p>
+                        <!-- 2/4 (Vermelho) -->
+                        <div class="p-6 bg-stone-50 dark:bg-stone-900 rounded-2xl border border-stone-200 dark:border-stone-800 flex justify-between items-center">
+                            <div class="flex-1 pr-4">
+                                <strong class="block text-3xl mb-2 text-ink dark:text-white font-serif">2/4</strong>
+                                <p class="text-sm text-stone-600 dark:text-stone-400">"A caixa cabe <strong>2 tempos</strong>. Ritmo de Marcha ou Samba simples. CONTA-se: <strong>1</strong>-2."</p>
+                            </div>
+                            <button class="play-btn btn-red" onclick="toggleMetronome('2/4', this)">
+                                <svg class="play-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                <svg class="stop-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M6 6h12v12H6z"/></svg>
+                            </button>
                         </div>
-                        <div class="p-6 bg-stone-50 dark:bg-stone-900 rounded-2xl border border-stone-200 dark:border-stone-800">
-                            <strong class="block text-3xl mb-2 text-ink dark:text-white font-serif">3/4</strong>
-                            <p class="text-sm text-stone-600 dark:text-stone-400">"A caixa cabe <strong>3 tempos</strong>. É o ritmo da Valsa. CONTA-se: <strong>1</strong>-2-3."</p>
+                        <!-- 3/4 (Azul) -->
+                        <div class="p-6 bg-stone-50 dark:bg-stone-900 rounded-2xl border border-stone-200 dark:border-stone-800 flex justify-between items-center">
+                            <div class="flex-1 pr-4">
+                                <strong class="block text-3xl mb-2 text-ink dark:text-white font-serif">3/4</strong>
+                                <p class="text-sm text-stone-600 dark:text-stone-400">"A caixa cabe <strong>3 tempos</strong>. É o ritmo da Valsa. CONTA-se: <strong>1</strong>-2-3."</p>
+                            </div>
+                            <button class="play-btn btn-blue" onclick="toggleMetronome('3/4', this)">
+                                <svg class="play-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                <svg class="stop-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M6 6h12v12H6z"/></svg>
+                            </button>
+                        </div>
+                        <!-- 4/4 (Roxo) -->
+                        <div class="p-6 bg-stone-50 dark:bg-stone-900 rounded-2xl border border-stone-200 dark:border-stone-800 flex justify-between items-center">
+                            <div class="flex-1 pr-4">
+                                <strong class="block text-3xl mb-2 text-ink dark:text-white font-serif">4/4</strong>
+                                <p class="text-sm text-stone-600 dark:text-stone-400">"A caixa cabe <strong>4 tempos</strong>. É o ritmo mais comum (Rock, Pop). CONTA-se: <strong>1</strong>-2-3-4."</p>
+                            </div>
+                            <button class="play-btn btn-purple" onclick="toggleMetronome('4/4', this)">
+                                <svg class="play-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                <svg class="stop-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M6 6h12v12H6z"/></svg>
+                            </button>
+                        </div>
+                        <!-- 6/8 (Alface/Verde) -->
+                        <div class="p-6 bg-stone-50 dark:bg-stone-900 rounded-2xl border border-stone-200 dark:border-stone-800 flex justify-between items-center">
+                            <div class="flex-1 pr-4">
+                                <strong class="block text-3xl mb-2 text-ink dark:text-white font-serif">6/8</strong>
+                                <p class="text-sm text-stone-600 dark:text-stone-400">"A caixa cabe <strong>6 subdivisões</strong>. Ritmo ternário composto (2 pulsações). Blues e Rock Lento. CONTA-se: <strong>1</strong>-2-3, <strong>4</strong>-5-6."</p>
+                            </div>
+                            <button class="play-btn btn-green" onclick="toggleMetronome('6/8', this)">
+                                <svg class="play-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                <svg class="stop-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M6 6h12v12H6z"/></svg>
+                            </button>
                         </div>
                     </div>
                 </div>
